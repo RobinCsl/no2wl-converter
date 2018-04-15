@@ -1,3 +1,10 @@
+const {
+  isString,
+  isSequenceOfDigits,
+  isGreaterThan1,
+  flattenArray,
+} = require("./helpers");
+
 /**
  * Defining constants
  */
@@ -12,22 +19,6 @@ const keyboard = {
   8: ["t", "u", "v"],
   9: ["w", "x", "y", "z"],
 };
-
-/**
- * Helper functions to test some variables
- */
-
-const isString = input => typeof input === "string";
-
-const isSequenceOfDigits = input => /^(\d)*$/g.test(input);
-
-const isGreaterThan1 = digit => digit > 1;
-
-/**
- * Helper functions
- */
-
-const flattenArray = arr => [].concat(...arr);
 
 /**
  * Main function
