@@ -46,7 +46,7 @@ function number2wordlist(input) {
 
   if (digits.length > 10) {
     throw new Error(`Cannot accept more than 10 digits
-     or call stack size exceeded`);
+     or call stack size will exceed`);
   }
 
   let result = [];

@@ -1,5 +1,6 @@
 const express = require("express");
 const helmet = require("helmet");
+const cors = require("cors");
 
 const { number2wordlist } = require("./no2wl");
 const { isString, isSequenceOfDigits } = require("./helpers");
@@ -8,6 +9,7 @@ const app = express();
 const port = 4000;
 
 app.use(helmet());
+app.use(cors());
 
 app.get("/:input", (req, res) => {
   const { input } = req.params;
@@ -19,6 +21,12 @@ app.get("/:input", (req, res) => {
       error: "Input should be sequence of digits.",
     });
   }
+  if (input.replace(/0|1/g, "").length > 10) {
+    res.json({
+      error: "Cannot accept more than 10 digits or call stack size will exceed",
+    });
+  }
+
   const wordList = number2wordlist(input);
   const result = { result: wordList };
   res.json(result);
