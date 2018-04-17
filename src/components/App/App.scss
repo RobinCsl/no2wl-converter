@@ -11,7 +11,7 @@
   background-color: #222;
   height: 150px;
   padding: 20px;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .App-title {
@@ -23,6 +23,24 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.flashing {
+  animation: flashing-text infinite 0.75s steps(1) alternate;
+}
+
+@keyframes flashing-text {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
