@@ -1,0 +1,47 @@
+.wordlist {
+  &__error {
+    color: red;
+    font-size: 1.6rem;
+  }
+
+  &__words {
+    margin: auto;
+    display: grid;
+    max-width: 500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+
+    &__word {
+      font-size: 1.4rem;
+    }
+  }
+
+  &__loadmore {
+    margin: 20px auto;
+    color: #ffffff;
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    text-transform: uppercase;
+    border-radius: 2px;
+    border-style: initial;
+    background-color: #28a745;
+    padding: 10px 20px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .wordlist {
+    &__error {
+      font-size: 1.4rem;
+    }
+    &__words {
+      max-width: 300px;
+      grid-template-columns: 1fr 1fr 1fr;
+      &__word {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
