@@ -2,6 +2,10 @@
   "name": "no2wl-converter",
   "version": "0.1.0",
   "license": "GPL-3.0",
+  "author": {
+    "name": "Robin Cussol",
+    "email": "robin@robincussol.com"
+  },
   "private": true,
   "dependencies": {
     "autoprefixer": "7.1.6",
