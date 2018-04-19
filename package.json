@@ -53,15 +53,16 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "start-server:dev": "nodemon --ignore './src' -e js --exec 'node ./server/index.js'",
+    "start": "node ./app/scripts/start.js",
+    "start-server:dev":
+      "nodemon --ignore './app/src' -e js --exec 'node ./server/index.js'",
     "start-server": "node ./server/index.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom",
-    "test-react": "export CI=true; node scripts/test.js --env=jsdom",
+    "build": "node ./app/scripts/build.js",
+    "test": "node ./app/scripts/test.js --env=jsdom",
+    "test-react": "export CI=true; node ./app/scripts/test.js --env=jsdom",
     "test-server": "jest ./server",
     "test-server:dev": "jest ./server --watch",
-    "lint": "eslint --ext .jsx,.js src/ server/"
+    "lint": "eslint --ext .jsx,.js app/src/ server/"
   },
   "devDependencies": {
     "eslint-config-airbnb": "^16.1.0",
@@ -71,32 +72,23 @@
     "prettier": "1.12.0",
     "sass-loader": "^7.0.1"
   },
-  "pre-commit": [
-    "lint",
-    "test-server",
-    "test-react"
-  ],
+  "pre-commit": ["lint", "test-server", "test-react"],
   "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,mjs}"
-    ],
-    "setupFiles": [
-      "<rootDir>/config/polyfills.js"
-    ],
+    "collectCoverageFrom": ["app/src/**/*.{js,jsx,mjs}"],
+    "setupFiles": ["<rootDir>/app/config/polyfills.js"],
     "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
-      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
+      "<rootDir>/app/src/**/__tests__/**/*.{js,jsx,mjs}",
+      "<rootDir>/app/src/**/?(*.)(spec|test).{js,jsx,mjs}"
     ],
     "testEnvironment": "node",
     "testURL": "http://localhost",
     "transform": {
       "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+      "^.+\\.css$": "<rootDir>/app/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|mjs|css|json)$)":
+        "<rootDir>/app/config/jest/fileTransform.js"
     },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
-    ],
+    "transformIgnorePatterns": ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"],
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
     },
@@ -111,9 +103,7 @@
     ]
   },
   "babel": {
-    "presets": [
-      "react-app"
-    ]
+    "presets": ["react-app"]
   },
   "eslintConfig": {
     "extends": "react-app"
