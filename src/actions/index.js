@@ -1,9 +1,4 @@
-export const updateWordList = payload => ({
-  type: "UPDATE_WORD_LIST",
-  payload,
-});
+import increaseLoadMoreIndex from "./increaseLoadMoreIndex";
+import handleNewInput from "./newInputHandler";
 
-export const updateInputValue = payload => ({
-  type: "UPDATE_INPUT_VALUE",
-  payload,
-});
+export { increaseLoadMoreIndex, handleNewInput };
